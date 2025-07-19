@@ -1,0 +1,14 @@
+name: Run Docker Build
+on: [push]
+jobs:
+  run-docker build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Docker Build Image
+        run: docker build -t pythonimage .
+
+      - name: List Docker Image
+        run: docker images
